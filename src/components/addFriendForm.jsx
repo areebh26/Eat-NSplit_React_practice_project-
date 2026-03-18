@@ -1,6 +1,6 @@
 import { useState } from "react"
 
-export default function AddFriendForm(){
+export default function AddFriendForm({addFriendFunction}){
     let [name,setName] = useState("");
     let [image,setImage] = useState("");
     return (
@@ -14,7 +14,14 @@ export default function AddFriendForm(){
                     <label for="imageURL">Image URL : </label>
                     <input type="text" id="imageURL" value={image} onChange={(e)=>(setImage(e.target.value))}/>
                 </div>
-                <button>Add</button>
+                <button onClick={()=>(
+                    addFriendFunction({
+                        id:Date.now(),
+                        name:name,
+                        picture:image,
+                        message:`You and ${name} are even`
+                    })
+                )}>Add</button>
             </div>
         </div>
     )
