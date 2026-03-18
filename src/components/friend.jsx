@@ -1,8 +1,8 @@
 import { useState } from "react";
 
 
-function Friend({friend,getID}) {
-   let [message,_setMessage]=useState(`You and ${friend.name} are even`);
+function Friend({friend,getID,message}) {
+   
    let [isOpen,setIsOpen]=useState(false);
    function handleClick(){
     if(!isOpen){
@@ -13,6 +13,7 @@ function Friend({friend,getID}) {
       setIsOpen(!isOpen);
     }
    }
+  
   return (
     <div>
         <div>

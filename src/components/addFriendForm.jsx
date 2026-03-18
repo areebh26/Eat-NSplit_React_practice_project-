@@ -1,8 +1,12 @@
 import { useState } from "react"
 
-export default function AddFriendForm({addFriendFunction}){
+export default function AddFriendForm({addFriendFunction,message}){
     let [name,setName] = useState("");
     let [image,setImage] = useState("");
+    function clearForm(){
+        setName("");
+        setImage("");
+    }
     return (
         <div>
             <div>
@@ -14,13 +18,15 @@ export default function AddFriendForm({addFriendFunction}){
                     <label for="imageURL">Image URL : </label>
                     <input type="text" id="imageURL" value={image} onChange={(e)=>(setImage(e.target.value))}/>
                 </div>
-                <button onClick={()=>(
+                <button onClick={()=>{
                     addFriendFunction({
                         id:Date.now(),
                         name:name,
                         picture:image,
-                    })
-                )}>Add</button>
+                    });
+                    message(`You and ${name} are even`);
+                    clearForm();
+                }}>Add</button>
             </div>
         </div>
     )

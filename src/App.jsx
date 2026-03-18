@@ -20,8 +20,8 @@ function App() {
   }
   return (
     <div>
-      <FriendList getID={getID} friends={friends}></FriendList>
-      <AddFriendForm addFriendFunction={addFriend}></AddFriendForm>
+      <FriendList getID={getID} friends={friends} message={message}></FriendList>
+      <AddFriendForm addFriendFunction={addFriend} message={getMessage}></AddFriendForm>
       {id && (<Splitter message={getMessage} friend={()=>{
        let obj= friends.filter((friend)=>(friend.id===id));
        return obj[0];
