@@ -5,14 +5,12 @@ function FriendList(friends,getID) {
      
   return (
     <div>
-        <ul>
-             {
+         {
                 friends.map((friend)=>(
-                        <li><Friend getID={getID} friend={friend}></Friend></li>
+                        <div key={friend.id}><Friend getID={getID} friend={friend}></Friend></div>  
                 ))
 
-             }
-        </ul>
+        }
        
     </div>
   )

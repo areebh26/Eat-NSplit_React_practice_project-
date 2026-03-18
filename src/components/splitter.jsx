@@ -1,9 +1,16 @@
 import { useState } from "react"
 
-function Splitter(friend) {
+function Splitter(friend,message) {
     let [bill,setBill]=useState(0);
     let [yourExpense,setYourExpense]=useState(0);
     let [select,setSelect] = useState("You");
+    function handleClick(){
+        if(select=="You"){
+            message(`${friend.name} owes you ${bill-yourExpense}`);
+        }else{
+             message(` You owe ${friend.name}${bill-(bill-yourExpense)}`);
+        }
+    }
   return (
     <div>
         <div>
@@ -29,7 +36,7 @@ function Splitter(friend) {
                 </select>
             </div>
             <div>
-                <button>Split Bill</button>
+                <button onClick={handleClick}>Split Bill</button>
             </div>
         </div>
     </div>

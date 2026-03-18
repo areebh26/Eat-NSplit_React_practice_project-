@@ -1,8 +1,18 @@
 import { useState } from "react";
 
 
-function Friend({friend,isOpen,getID}) {
+function Friend({friend,getID}) {
    let [message,_setMessage]=useState(`You and ${friend.name} are even`);
+   let [isOpen,setIsOpen]=useState(false);
+   function handleClick(){
+    if(!isOpen){
+      getID(friend.id);
+      setIsOpen(!isOpen);
+    }else{
+      getID("");
+      setIsOpen(!isOpen);
+    }
+   }
   return (
     <div>
         <div>
@@ -11,7 +21,7 @@ function Friend({friend,isOpen,getID}) {
             <p>{message}</p>
         </div>
         <div>
-            <button onClick={getID(friend.id)}>{isOpen ? "Close" : "Select"}</button>
+            <button onClick={handleClick}>{isOpen ? "Close" : "Select"}</button>
         </div>
     </div>
 
