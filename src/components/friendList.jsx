@@ -1,11 +1,21 @@
+import Friend from "./friend.jsx";
 
 
-function friendList() {
+function FriendList(friends,getID) {
+     
   return (
     <div>
-        
+        <ul>
+             {
+                friends.map((friend)=>(
+                        <li><Friend getID={getID} friend={friend}></Friend></li>
+                ))
+
+             }
+        </ul>
+       
     </div>
   )
 }
 
-export default friendList
+export default FriendList

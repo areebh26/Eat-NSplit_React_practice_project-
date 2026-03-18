@@ -19,7 +19,6 @@ export default function AddFriendForm({addFriendFunction}){
                         id:Date.now(),
                         name:name,
                         picture:image,
-                        message:`You and ${name} are even`
                     })
                 )}>Add</button>
             </div>
