@@ -1,0 +1,243 @@
+/* ===== Google Font ===== */
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&display=swap');
+
+/* ===== Reset & Base ===== */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  font-family: 'Quicksand', sans-serif;
+  font-size: 1.6rem;
+  font-weight: 500;
+  color: #333;
+  background-color: #f7f2e9;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 4.8rem 2.4rem;
+}
+
+/* ===== App Layout ===== */
+.app {
+  display: flex;
+  gap: 4.8rem;
+  align-items: flex-start;
+  max-width: 960px;
+  width: 100%;
+}
+
+/* ===== Sidebar (left column) ===== */
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  flex: 1;
+  min-width: 0;
+}
+
+/* ===== Friend List ===== */
+.friend-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+/* ===== Individual Friend Card ===== */
+.friend {
+  display: flex;
+  align-items: center;
+  gap: 1.6rem;
+  padding: 1.2rem 1.6rem;
+  border-radius: 12px;
+  transition: background-color 0.25s ease;
+  cursor: default;
+}
+
+.friend:hover {
+  background-color: rgba(232, 128, 29, 0.06);
+}
+
+.friend.selected {
+  background-color: #fff0d3;
+}
+
+.friend-info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  flex: 1;
+  min-width: 0;
+}
+
+.friend-info h3 {
+  font-size: 1.7rem;
+  font-weight: 700;
+  color: #333;
+}
+
+.friend-info p {
+  font-size: 1.4rem;
+  font-weight: 500;
+  color: #777;
+}
+
+.friend-actions {
+  flex-shrink: 0;
+}
+
+.friend img {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  object-fit: cover;
+  flex-shrink: 0;
+}
+
+/* ===== Buttons ===== */
+.btn {
+  font-family: inherit;
+  font-size: 1.4rem;
+  font-weight: 700;
+  background-color: #e8801d;
+  color: #333;
+  border: none;
+  border-radius: 8px;
+  padding: 0.7rem 2.4rem;
+  cursor: pointer;
+  transition: background-color 0.2s ease, transform 0.15s ease;
+}
+
+.btn:hover {
+  background-color: #d4720f;
+  transform: translateY(-1px);
+}
+
+.btn:active {
+  transform: translateY(0);
+}
+
+/* ===== Add Friend Form ===== */
+.add-friend-form {
+  background-color: #fff0d3;
+  padding: 1.6rem 2rem;
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+.form-row {
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+}
+
+.form-row label {
+  font-size: 1.5rem;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.form-row input,
+.form-row select {
+  font-family: inherit;
+  font-size: 1.4rem;
+  font-weight: 500;
+  padding: 0.6rem 1rem;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  outline: none;
+  flex: 1;
+  min-width: 0;
+  transition: border-color 0.2s ease;
+}
+
+.form-row input:focus,
+.form-row select:focus {
+  border-color: #e8801d;
+  box-shadow: 0 0 0 2px rgba(232, 128, 29, 0.15);
+}
+
+.add-friend-form .btn {
+  align-self: stretch;
+}
+
+/* ===== Splitter Panel ===== */
+.splitter {
+  flex: 1;
+  background-color: #fff;
+  padding: 3.2rem;
+  border-radius: 12px;
+  box-shadow: 0 2px 16px rgba(0, 0, 0, 0.06);
+  display: flex;
+  flex-direction: column;
+  gap: 1.6rem;
+}
+
+.splitter h2 {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #333;
+  margin-bottom: 0.8rem;
+}
+
+.splitter .form-row {
+  justify-content: space-between;
+}
+
+.splitter .form-row label,
+.splitter .form-row span {
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+.splitter .form-row input,
+.splitter .form-row select {
+  width: 14rem;
+  flex: 0 0 14rem;
+}
+
+.splitter .form-row .expense-value {
+  display: inline-block;
+  width: 14rem;
+  padding: 0.6rem 1rem;
+  background-color: #f0f0f0;
+  border-radius: 6px;
+  font-size: 1.4rem;
+  font-weight: 500;
+  text-align: left;
+}
+
+.splitter .btn {
+  align-self: flex-end;
+  margin-top: 0.4rem;
+}
+
+/* ===== Close / Toggle button below form ===== */
+.btn-toggle {
+  align-self: flex-end;
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 700px) {
+  .app {
+    flex-direction: column;
+    gap: 3.2rem;
+  }
+
+  .splitter .form-row input,
+  .splitter .form-row select {
+    width: 10rem;
+    flex: 0 0 10rem;
+  }
+}

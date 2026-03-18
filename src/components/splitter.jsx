@@ -14,33 +14,27 @@ function Splitter({friend,message}) {
         }
     }
   return (
-    <div>
-        <div>
-            <div>
-                <h2>SPLIT A BILL WITH {friend.name}</h2>
-            </div>
-            <div>
-                 <label for="bill">Bill Value : </label>
-                 <input type="text" id="bill" value={bill} onChange={(e)=>(setBill(e.target.value))} />
-            </div>
-            <div>
-                 <label for="expense">Your expense : </label>
-                 <input type="text" id="expense" value={yourExpense} onChange={(e)=>(setYourExpense(e.target.value))} />
-            </div>
-            <div>
-                <span>{friend.name}'s Expense : </span><span>{Number(bill)-Number(yourExpense)}</span>
-            </div>
-            <div>
-                <label for="select">Who is going to pay the bill ? </label>
-                <select  id="select" value={select} onChange={(e)=>(setSelect(e.target.value))}>
-                    <option value="You">You</option>
-                    <option value={friend.name}>{friend.name}</option>
-                </select>
-            </div>
-            <div>
-                <button onClick={handleClick}>Split Bill</button>
-            </div>
+    <div className="splitter">
+        <h2>SPLIT A BILL WITH {friend.name}</h2>
+        <div className="form-row">
+             <label htmlFor="bill">💰 Bill value</label>
+             <input type="text" id="bill" value={bill} onChange={(e)=>(setBill(e.target.value))} />
         </div>
+        <div className="form-row">
+             <label htmlFor="expense">🧍 Your expense</label>
+             <input type="text" id="expense" value={yourExpense} onChange={(e)=>(setYourExpense(e.target.value))} />
+        </div>
+        <div className="form-row">
+            <span>👫 {friend.name}'s expense:</span><span className="expense-value">{Number(bill)-Number(yourExpense)}</span>
+        </div>
+        <div className="form-row">
+            <label htmlFor="select">🤑 Who is paying the bill?</label>
+            <select  id="select" value={select} onChange={(e)=>(setSelect(e.target.value))}>
+                <option value="You">You</option>
+                <option value={friend.name}>{friend.name}</option>
+            </select>
+        </div>
+        <button className="btn" onClick={handleClick}>Split bill</button>
     </div>
   )
 }

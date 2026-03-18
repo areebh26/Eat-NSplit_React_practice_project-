@@ -19,9 +19,11 @@ function App() {
     setMessage(m);
   }
   return (
-    <div>
-      <FriendList getID={getID} friends={friends} message={message}></FriendList>
-      <AddFriendForm addFriendFunction={addFriend} message={getMessage}></AddFriendForm>
+    <div className="app">
+      <div className="sidebar">
+        <FriendList getID={getID} friends={friends} message={message}></FriendList>
+        <AddFriendForm addFriendFunction={addFriend} message={getMessage}></AddFriendForm>
+      </div>
       {id && (<Splitter message={getMessage} friend={()=>{
        let obj= friends.filter((friend)=>(friend.id===id));
        return obj[0];

@@ -15,14 +15,14 @@ function Friend({friend,getID,message}) {
    }
   
   return (
-    <div>
-        <div>
-            <img src={friend.picture} alt="profile photo" />
+    <div className={`friend ${isOpen ? "selected" : ""}`}>
+        <img src={friend.picture} alt="profile photo" />
+        <div className="friend-info">
             <h3>{friend.name}</h3>
             <p>{message}</p>
         </div>
-        <div>
-            <button onClick={handleClick}>{isOpen ? "Close" : "Select"}</button>
+        <div className="friend-actions">
+            <button className="btn" onClick={handleClick}>{isOpen ? "Close" : "Select"}</button>
         </div>
     </div>
 
