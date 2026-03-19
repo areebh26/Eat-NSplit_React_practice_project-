@@ -1,13 +1,13 @@
 import Friend from "./friend.jsx";
 
 
-function FriendList({friends,getID,message}) {
+function FriendList({friends,getID}) {
      
   return (
     <div className="friend-list">
          {
                 friends.map((friend)=>(
-                        <div key={friend.id}><Friend getID={getID} friend={friend} message={message}></Friend></div>  
+                        <div key={friend.id}><Friend getID={getID} friend={friend} ></Friend></div>  
                 ))
 
         }

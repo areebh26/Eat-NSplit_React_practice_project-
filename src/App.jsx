@@ -7,27 +7,26 @@ import Splitter from "./components/splitter.jsx";
 
 function App() {
   let [friends,setFriend]=useState([]);
-  let [id,setID]=useState("");
-  let [message,setMessage]=useState("");
+  let [id,setID]=useState();
+  
   function addFriend(newFriend){
     setFriend([...friends,newFriend])
   }
   function getID(num){
     setID(num)
   }
-  function getMessage(m){
-    setMessage(m);
+  
+  function getOneFrind(){
+      let obj= friends.filter((friend)=>(friend.id==id));
+      return obj[0];
   }
   return (
     <div className="app">
       <div className="sidebar">
-        <FriendList getID={getID} friends={friends} message={message}></FriendList>
-        <AddFriendForm addFriendFunction={addFriend} message={getMessage}></AddFriendForm>
+        <FriendList getID={getID} friends={friends}></FriendList>
+        <AddFriendForm addFriendFunction={addFriend}></AddFriendForm>
       </div>
-      {id && (<Splitter message={getMessage} friend={()=>{
-       let obj= friends.filter((friend)=>(friend.id===id));
-       return obj[0];
-      }}></Splitter>)}
+      {id && (<Splitter message={setFriend} friend={getOneFrind()}></Splitter>)}
     </div>
   )
 }

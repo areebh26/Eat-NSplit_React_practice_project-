@@ -1,6 +1,6 @@
 import { useState } from "react"
 
-export default function AddFriendForm({addFriendFunction,message}){
+export default function AddFriendForm({addFriendFunction}){
     let [name,setName] = useState("");
     let [image,setImage] = useState("");
     function clearForm(){
@@ -22,8 +22,9 @@ export default function AddFriendForm({addFriendFunction,message}){
                     id:Date.now(),
                     name:name,
                     picture:image,
+                    message:`You and ${name} are even`
                 });
-                message(`You and ${name} are even`);
+                
                 clearForm();
             }}>Add</button>
         </div>

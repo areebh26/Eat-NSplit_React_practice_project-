@@ -1,7 +1,7 @@
 import { useState } from "react";
 
 
-function Friend({friend,getID,message}) {
+function Friend({friend,getID}) {
    
    let [isOpen,setIsOpen]=useState(false);
    function handleClick(){
@@ -19,7 +19,7 @@ function Friend({friend,getID,message}) {
         <img src={friend.picture} alt="profile photo" />
         <div className="friend-info">
             <h3>{friend.name}</h3>
-            <p>{message}</p>
+            <p>{friend.message}</p>
         </div>
         <div className="friend-actions">
             <button className="btn" onClick={handleClick}>{isOpen ? "Close" : "Select"}</button>
